@@ -4,6 +4,7 @@ Feature: Parking space booking
   So I can park on the parking space I'd booked
 
   
+  
   Scenario: Book parking space
     Given the system has the user "rjss" with "CCEN" as prefered sector
     And the user logged in the system

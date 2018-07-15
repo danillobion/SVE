@@ -184,6 +184,7 @@ Then(~/^I see a message indicating that the parking space was not possible book 
     assert page.verifyFailBookMessage()
 }*/
 
+
 Given(~/^the system has the user "(.*?)" with "(.*?)" as prefered sector$/) { String username, String sector ->
 	currentUsername = username
 	AuthHelper.instance.signup(username, sector)
