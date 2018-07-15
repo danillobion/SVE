@@ -17,6 +17,7 @@ class SignUpPage extends Page {
         $("input[name='signUp']").click()
     }
 	
+	
 	def register(String username, String firstname, String lastname) {
 		$("input[name='username']").value(username)
 		$("input[name='firstname']").value(firstname)

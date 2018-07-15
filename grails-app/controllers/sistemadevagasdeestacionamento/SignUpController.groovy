@@ -3,6 +3,7 @@ package sistemadevagasdeestacionamento
 class SignUpController {
     def index() { }
 
+	
     def register() {
         String username = params.username
 

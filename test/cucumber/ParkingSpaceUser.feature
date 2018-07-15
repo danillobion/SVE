@@ -1,5 +1,6 @@
 Feature: Cadastrar um novo usuario no sistema
   
+  
   Scenario: Cadastrar um novo usuario no sistema
     Given Estou na pagina de cadastrar usuario
     When Eu digito no nome "Biu" primeiro nome "Fulano" sobrenome "Lima"

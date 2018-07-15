@@ -6,6 +6,7 @@ import sistemadevagasdeestacionamento.*
 this.metaClass.mixin(cucumber.api.groovy.Hooks)
 this.metaClass.mixin(cucumber.api.groovy.EN)
 
+
 Given(~/^Estou na pagina de cadastrar usuario$/) { ->
 	to SignUpPage 
 	at SignUpPage
