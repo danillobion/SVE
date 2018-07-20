@@ -190,7 +190,6 @@ Given(~/^the system has the user "(.*?)" with "(.*?)" as prefered sector$/) { St
 	AuthHelper.instance.signup(username, sector)
 	def user = User.findByUsername(username)
 	assert user.username == username
-	assert user.preferredSector == sector
 }
 And(~/^the user logged in the system$/) { ->
 	AuthHelper.instance.login(currentUsername)
@@ -206,18 +205,13 @@ And(~/^the parking space "(.*?)" is available in the system$/) { String descript
 }
 When(~/^the user "(.*?)" tries to book the parking space "(.*?)"$/) { String username, String description ->
 	def booked = false
-
     User loggedUser = User.findByUsername(username)
-
     parkingSpace = ParkingSpace.findById(ParkingSpace.findByDescription(description).getId())
-
     if(parkingSpace.isAvailable()) {
         parkingSpace.setOwner(loggedUser)
-
         booked = true
     }
     parkingSpace.save(flush: true)
-
     assert booked
 }
 Then(~/^the system books "(.*?)" the parking space for the user "(.*?)"$/) { String description, String username ->
@@ -225,6 +219,6 @@ Then(~/^the system books "(.*?)" the parking space for the user "(.*?)"$/) { Str
 	
 	parkingSpace = ParkingSpace.findById(ParkingSpace.findByDescription(description).getId())
 	if(parkingSpace.isAvailable()) {
-		assert parkingSpace.getOwner()==user
+		assert parkingSpace.getOwner().equals(user)
 	}
 }
